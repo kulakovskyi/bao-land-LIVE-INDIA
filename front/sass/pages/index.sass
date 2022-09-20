@@ -36,11 +36,31 @@ body
   left: 0
   z-index: 60
 
+.left-img
+  position: absolute
+  top: 0
+  left: 0
+  background: url('../img/back-left.png') no-repeat 50% 0/contain
+  width: 680px
+  height: 453px
+
+.right-img
+  position: absolute
+  top: 0
+  right: 0
+  background: url('../img/back-right.png') no-repeat 50% 0/contain
+  width: 390px
+  height: 370px
+
+
 .bao
   width: 100%
   height: 100%
   overflow: hidden
   position: relative
+  display: flex
+  align-items: center
+  justify-content: center
   @media screen and (min-width: 700px) and (orientation: landscape) and (min-height: 451px)
     background: url('../img/bg-desc.jpg') no-repeat 50% 0/cover
   @media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait)
@@ -49,37 +69,43 @@ body
     background: url("../img/bg-mob.jpg") no-repeat 50% 0/cover
   @media (max-width: 920px) and (orientation: landscape) and (max-height: 450px)
     background: url("../img/bg-landscape.jpg") no-repeat 50% 0/cover
+  &::before
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 420px
+    background: linear-gradient(180deg, #2B144B 0%, #2B144B 6.77%, rgba(43, 20, 75, 0.87) 25.52%, rgba(58, 21, 85, 0.55) 68.75%, rgba(64, 19, 82, 0.26) 86.46%, rgba(91, 29, 147, 0) 100%)
+    transform: rotate(180deg)
+    z-index: 1
   &__logo
     max-width: 250px
     position: absolute
     top: 65px
-    left: 70px
-
+    left: 225px
   &__wrapper
-    display: flex
-    justify-content: space-between
-    align-items: center
-    padding: 0 100px 0 0
+    position: relative
   &__pic
     position: relative
-    height: 100vh
-    width: 62%
-    margin: 0 50px 0 0
+    height: 545px
+    width: 100%
     display: flex
-    justify-content: flex-end
+    justify-content: center
   &__rulet
-    width: 933px
+    width: 1140px
     position: absolute
-    bottom: -212px
-    right: 210px
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
   &__womans-wrapper
     height: 100%
-    width: 60vh
+    width: 561px
     position: relative
     //overflow: hidden
   &__womans
-    height: 80vh
-    width: 50vh
+    height: 830px
+    width: 500px
     position: absolute
     right: 0
     picture
@@ -90,73 +116,89 @@ body
       animation: animWom1 1.5s cubic-bezier( 0.9, 0.29, 0.76, 0.93 )
       animation-delay: 4s
       animation-fill-mode: forwards
+      right: 35px
     &-2
       opacity: 0
-      width: 60vh
-      right: -77px
       animation: animWom2 12s cubic-bezier( 0.9, 0.29, 0.76, 0.93 ) infinite //23
       animation-delay: 4s
-      transform: translateX(140%)
+      right: 25px
+      //transform: translateX(140%)
 
     &-3
       opacity: 0
-      width: 60vh
-      right: -41px
       animation: animWom2 12s cubic-bezier( 0.9, 0.29, 0.76, 0.93 ) infinite //28
       animation-delay: 8s
-      picture
-        top: 39px
+      top: -7px
+      right: 15px
 
     &-4
       opacity: 0
       animation: animWom2 12s cubic-bezier( 0.9, 0.29, 0.76, 0.93 ) infinite //35
       animation-delay: 12s
-
-
+      right: 35px
 
   &__info
     display: flex
     flex-direction: column
-    align-items: flex-start
-    margin-top: 135px
+    align-items: center
     white-space: nowrap
     position: relative
     z-index: 20
+    bottom: -50px
   &__title
     font-family: $gilroy-800
     white-space: nowrap
-    font-size: 82px
-    line-height: 89px
-    letter-spacing: 0.01em
+    font-size: 72px
+    line-height: 77px
     text-transform: uppercase
-    color: $yellow
-    margin: 0 0 30px 0
+    color: #F5F5F5
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    margin: 0 0 6px 0
+    text-align: center
+    position: relative
+    &::after
+      content: ''
+      position: absolute
+      width: 270px
+      height: 100px
+      top: -114px
+      left: 51.5%
+      transform: translateX(-50%)
+      background: url('../img/tenn-img.svg') no-repeat 50% 0/contain
+
   &__text
     font-family: $gilroy-700
-    font-size: 32px
-    line-height: 32px
+    font-size: 28px
+    line-height: 34px
     letter-spacing: 0.04em
     text-transform: uppercase
-    color: $white
-    margin: 0 0 60px 0
+    color: #FCF16A
+    margin: 0 0 30px 0
   &__link
     display: inline-block
-    padding: 26px 60px 21px
-    margin: 0 0 200px 0
-    font-family: $gilroy-700
-    font-size: 30px
-    line-height: 36px
-    border-radius: 5px
+    padding: 26px 57px 21px
+    margin: 0 0 40px 0
+    font-family: $gilroy-800
+    font-size: 25px
+    line-height: 31px
     text-transform: uppercase
-    color: $violet
-    background: $yellow-2
+    color: #2D1A51
+    background: linear-gradient(269.93deg, #ED7D34 0.69%, #E9517B 50.43%, #E73AE4 99.15%)
+    box-shadow: inset 0px 4px 7px rgba(255, 255, 255, 0.57), inset 0px 4px 20px rgba(255, 253, 253, 0.7)
+    border-radius: 100px
     transition: background .3s ease
     &:hover
-      background: #fff201
+      background: linear-gradient(269.93deg, #F56101 0.69%, #FF215E 50.43%, #FF0CFB 99.15%)
+      box-shadow: inset 0px 4px 7px rgba(255, 255, 255, 0.57), inset 0px 4px 20px rgba(255, 253, 253, 0.7)
   &__footer
     display: flex
     align-items: center
     justify-content: center
+    position: absolute
+    bottom: 25px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 20
     img
       display: inline-block
       &:not(:last-child)
@@ -168,8 +210,8 @@ body
   width: 100%
   height: 100%
   position: absolute
-  bottom: 0px
-  left: 20px
+  bottom: 0
+  left: 0
   z-index: 15
   &__layer
     height: 100%
@@ -184,141 +226,76 @@ body
         height: 140px
         position: absolute
     .item-1
-      background: url("../img/chips/chip1-desc.png") no-repeat 0 0/contain
-      @media screen and (max-width: 600px) and (orientation: portrait)
-        background: url("../img/chips/chip1-mob.png") no-repeat 50% 0/contain
-      @media (max-width: 920px) and (orientation: landscape) and (max-height: 450px)
-        background: url("../img/chips/chip1-mob.png") no-repeat 50% 0/contain
-      width: 330px
-      height: 316px
-      bottom: 113px
-      left: -72px
+      background: url("../img/chips/mont1.png") no-repeat 0 0/contain
+      width: 209px
+      height: 216px
+      top: -86px
+      left: 65%
+      transform: translateX(-50%)
       &:before
-        bottom: 216px
-        left: 0
-        opacity: 0
-        animation: 2s fade linear infinite
+        content: none
       &:after
-        bottom: 160px
-        left: 60px
-        opacity: 0
-        animation: 2s fade 1s linear infinite
+        content: none
     .item-2
-      background: url("../img/chips/chip2-desc.png") no-repeat 0 0/contain
-      @media screen and (max-width: 600px) and (orientation: portrait)
-        background: url("../img/chips/chip2-mob.png") no-repeat 50% 0/contain
-      @media (max-width: 920px) and (orientation: landscape) and (max-height: 450px)
-        background: url("../img/chips/chip2-mob.png") no-repeat 50% 0/contain
-      width: 299px
-      height: 303px
-      bottom: 334px
-      left: 97px
+      background: url("../img/chips/mont2.png") no-repeat 0 0/contain
+      width: 200px
+      height: 140px
+      top: 225px
+      right: 33%
+      transform: translateX(50%)
       &:before
-        bottom: 191px
-        right: 110px
+        bottom: 21px
+        right: -20px
         opacity: 0
         animation: 2s fade linear infinite
       &:after
-        bottom: 104px
-        right: 86px
+        bottom: -36px
+        right: 106px
         opacity: 0
         animation: 2s fade 1s linear infinite
     .item-3
-      background: url("../img/chips/chip3-desc.png") no-repeat 0 0/contain
-      @media screen and (max-width: 600px) and (orientation: portrait)
-        background: url("../img/chips/chip3-mob.png") no-repeat 50% 0/contain
-      @media (max-width: 920px) and (orientation: landscape) and (max-height: 450px)
-        background: url("../img/chips/chip3-mob.png") no-repeat 50% 0/contain
-      width: 175px
-      height: 259px
-      bottom: 279px
-      left: 476px
+      background: url("../img/chips/mont3.png") no-repeat 0 0/contain
+      width: 260px
+      height: 190px
+      top: 33%
+      transform: translateX(-50%)
+      right: 110px
       &:before
-        top: -44px
-        right: 49px
-        opacity: 0
-        animation: 2s fade linear infinite
+        content: none
       &:after
-        top: 29px
-        right: 33px
-        opacity: 0
-        animation: 2s fade 1s linear infinite
+        content: none
     .item-4
-      background: url("../img/chips/chip4-desc.png") no-repeat 0 0/contain
-      @media screen and (max-width: 600px) and (orientation: portrait)
-        background: url("../img/chips/chip4-mob.png") no-repeat 50% 0/contain
-      @media (max-width: 920px) and (orientation: landscape) and (max-height: 450px)
-        background: url("../img/chips/chip4-mob.png") no-repeat 50% 0/contain
-      width: 200px
-      height: 203px
-      bottom: 257px
-      left: 326px
+      background: url("../img/chips/mont4.png") no-repeat 0 0/contain
+      width: 133px
+      height: 136px
+      right: -13px
+      top: 50%
+      transform: translateX(-50%)
       &:before
-        top: -45px
-        right: 58px
-        opacity: 0
-        animation: 2s fade linear infinite
+        content: none
       &:after
-        top: 38px
-        right: -49px
-        opacity: 0
-        animation: 2s fade 1s linear infinite
+        content: none
     .item-5
-      background: url("../img/chips/mon1.png") no-repeat 0 0/contain
-      width: 393px
-      height: 290px
-      bottom: -123px
-      left: -175px
+      background: url("../img/chips/mont5.png") no-repeat 0 0/contain
+      width: 130px
+      height: 140px
+      top: 64%
+      right: 300px
+      transform: translateX(-50%)
 
     .item-6
-      background: url("../img/chips/mon2.png") no-repeat 0 0/contain
-      width: 160px
-      height: 160px
-      bottom: 134px
-      left: -3px
+      background: url("../img/chips/mont6.png") no-repeat 0 0/contain
+      width: 430px
+      height: 370px
+      bottom: -167px
+      left: 150px
     .item-7
-      background: url("../img/chips/mon3.png") no-repeat 0 0/contain
-      width: 100px
-      height: 100px
-      bottom: 305px
-      left: 122px
-    .item-8
-      background: url("../img/chips/mon4.png") no-repeat 0 0/contain
-      width: 130px
-      height: 130px
-      bottom: 436px
-      left: 122px
-    .item-9
-      background: url("../img/chips/mon5.png") no-repeat 0 0/contain
-      width: 110px
-      height: 120px
-      bottom: 506px
-      left: 325px
-    .item-10
-      background: url("../img/chips/mon6.png") no-repeat 0 0/contain
-      width: 100px
-      height: 100px
-      bottom: 432px
-      left: 648px
-    .item-11
-      background: url("../img/chips/mon7.png") no-repeat 0 0/contain
-      width: 160px
+      background: url("../img/chips/mont7.png") no-repeat 0 0/contain
+      width: 195px
       height: 160px
-      bottom: 97px
-      left: 676px
-    .item-12
-      background: url("../img/chips/mon8.png") no-repeat 0 0/contain
-      width: 100px
-      height: 100px
-      bottom: -18px
-      left: 691px
-    .item-13
-      background: url("../img/chips/mon9.png") no-repeat 0 0/contain
-      width: 150px
-      height: 150px
-      bottom: -18px
-      left: 891px
-
+      top: 166px
+      left: 18%
+      transform: translateX(-50%)
     .item-6,.item-7, .item-8, .item-5, .item-9, .item-10, .item-11, .item-12, .item-13
       &:before,&:after
         content: none
